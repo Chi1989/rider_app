@@ -1,12 +1,15 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
-class VerifyNumberScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:rider_app/verify_code_screen.dart';
+
+class VerifyNumberScreen extends StatefulWidget {
   const VerifyNumberScreen({Key? key}) : super(key: key);
 
-  get onPressed => null;
-
   @override
+  State<VerifyNumberScreen> createState() => _VerifyNumberScreenState();
+}
+  class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -72,10 +75,13 @@ class VerifyNumberScreen extends StatelessWidget {
            SizedBox(
              height: 12,
            ),
-           ButtonTheme(
-             minWidth: 150.0,
-             height: 100.0,
-             child: ElevatedButton(onPressed: (){}, child: Text('Continue',
+           SizedBox(
+             width: 90,
+             height: 55,
+           child: ElevatedButton(onPressed: (){
+             Navigator.of(context).push(MaterialPageRoute(builder: (context) => VerifyCodeScreen()));
+           },
+             child: Text('Continue',
              style: TextStyle(
                color: Color(0xffFFFFFF),
                fontSize: 16,
@@ -83,18 +89,17 @@ class VerifyNumberScreen extends StatelessWidget {
              ),
            ),
              style: ElevatedButton.styleFrom(
-               primary: Color(0xff34D186),
-               //shape: BeveledRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16),
-               // ),
-               // ),
-
+               backgroundColor: Color(0xff34D186),
+               shape: StadiumBorder()
              ),
            ),
-           ),
+    )
 
         ],
       ),
     );
   }
+
+
 }
 
